@@ -1,0 +1,113 @@
+package controller;
+
+import java.io.IOException;
+import java.net.URL;
+import java.sql.*;
+import java.util.ResourceBundle;
+import javafx.scene.*;
+import application.ConnexionMysql;
+import javafx.scene.control.TextField;
+import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+
+public class SigninController implements Initializable{
+	    
+	    Connection cnx;
+	    public PreparedStatement st;
+	    public ResultSet result ;     
+	
+	    @FXML
+	    private TextField txt_user; // import javafx.scene.control.TextField;
+
+	    @FXML
+	    private TextField txt_pass;
+
+	    @FXML
+	    private Button btn_reset;
+
+	    @FXML
+	    private Button btn_connecter;
+	    
+	    @FXML
+	    private VBox VBox;
+	    
+	    private Parent fxml;
+	    
+
+	    @FXML
+	    void SendEmail() {
+
+	    }
+
+	    @FXML
+	    void openHome() {
+	    	
+	    	String user = txt_user.getText();
+	    	String pass = txt_pass.getText();
+	    	String sql ="select userName, password, id, email, image from admin";
+	    	int nb=0;
+	    	try {
+				st=cnx.prepareStatement(sql);
+				result=st.executeQuery();
+				
+				while(result.next()) {
+					
+
+			    	if(user.equals(result.getString("userName"))&&pass.equals(result.getString("password"))) {
+			    		nb=1;
+			    		String sql2="inset into userconnect( userName, email, password, image) values(?,?,?,?)";
+			    		st=cnx.prepareStatement(sql2);
+			    		st.setString(1, result.getString("userName"));
+			    		st.setString(2, result.getString("email"));
+			    		st.setString(3, result.getString("password"));
+			    		st.setBlob(4, result.getBlob("image"));
+			    		st.executeUpdate();
+			    		
+			    		System.out.println("CORRECET !");
+			    		VBox.getScene().getWindow().hide();
+			    		Stage home =new Stage();
+			    		try {
+							fxml = FXMLLoader.load(getClass().getResource("/interfacess/ok.fxml"));
+							Scene scene = new Scene(fxml);
+							home.setScene(scene);
+							home.show();
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+			    		
+			    	}
+				            	
+				}
+				
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+	    	
+	    	if(nb==0){
+	    		Alert alert =new Alert(AlertType.ERROR,"nom de l'utilisateur ou mot de passe incorect !", javafx.scene.control.ButtonType.OK);
+	    		alert.showAndWait();
+	    		txt_user.setText("");
+	    		txt_pass.setText("");
+	    	}
+	    	
+	    }
+	
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		cnx =ConnexionMysql.connexionDB();	
+		
+	}
+
+}

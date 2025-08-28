@@ -1,0 +1,1409 @@
+!SESSION 2023-06-05 13:38:09.275 -----------------------------------------------
+eclipse.buildId=4.27.0.20230309-1200
+java.version=17.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+This is a continuation of log file B:\Eclipse Workspace\.metadata\.bak_0.log
+Created Time: 2023-06-05 17:30:28.347
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 2 2023-06-05 17:30:28.347
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core.manipulation".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 0 2023-06-05 17:30:28.350
+!MESSAGE Error in JDT Core during AST creation
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-06-05 17:30:33.133
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package controller;
+
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.text.*;
+import java.time.LocalDate;
+
+
+
+
+public class PrescreptionController implements Initializable {
+	
+	@FXML
+    private TextField txt_nom;
+
+    @FXML
+    private TextField txt_prenom;
+
+    @FXML
+    private TextField txt_age;
+    
+    @FXML
+    private DatePicker txt_date;
+
+    @FXML
+    private TextArea txt_ord;
+
+    @FXML
+    private TextField txt_prix;
+
+    @FXML
+    private TextArea txt_ps;
+
+    @FXML
+    void imprimmer(MouseEvent event) {
+    	
+    	LocalDate Date = txt_date.getValue();
+    	Document doc = new Document();
+    	Document doc1 = new Document();
+    	
+    	if(txt_ps.getText()==null) {
+    	try {
+			PdfWriter.getInstance(doc, new FileOutputStream("ordonance.pdf"));
+			doc.open();
+			String format ="dd/mm/yy hh:mm";
+			
+			
+			SimpleDateFormat formater= new SimpleDateFormat(format);
+			java.util.Date date = new java.util.Date();
+			com.itextpdf.text.Image img = com.itextpdf.text.Image.getInstance("B:\\Eclipse Workspace\\Cabinet\\src\\imagese\\cabinet.png");
+			img.setAlignment(com.itextpdf.text.Image.ALIGN_CENTER);
+			doc.add(img);
+			Font boldFont = FontFactory.getFont(FontFactory.TIMES_ROMAN, 20, Font.BOLD, BaseColor.BLACK);
+			Font txt = FontFactory.getFont(FontFactory.TIMES_ROMAN, 14, Font.NORMAL, BaseColor.BLACK);
+			
+			Paragraph nomp = new Paragraph();
+			nomp.setAlignment(Element.ALIGN_CENTER);
+			nomp.setFont(txt);
+			nomp.add("\n     "+txt_nom.getText().toUpperCase()+"                "+txt_prenom.getText().toUpperCase()+"                "+txt_age.getText()+"ans"+"                Le :"+Date);
+			
+			Paragraph paragraph = new Paragraph();
+			paragraph.setAlignment(Element.ALIGN_CENTER);
+			paragraph.setFont(boldFont);
+			paragraph.add("\n \n ORDONANCE");
+			
+			Paragraph medic = new Paragraph();
+			medic.setAlignment(Element.ALIGN_LEFT);
+			medic.setFont(txt);
+			medic.add("\n"+txt_ord.getText());
+			
+			doc.add(nomp);
+			doc.add(paragraph);
+			doc.add(medic);
+			
+
+			doc.close();
+			Desktop.getDesktop().open(new File("ordonance.pdf"));
+			
+			
+		} catch (FileNotFoundException | DocumentException e) {
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	
+    	
+    	
+    	}
+    	
+    	else {
+    		PdfWriter.getInstance(doc, new FileOutputStream("ordonance.pdf"));
+			doc.open();
+			String format ="dd/mm/yy hh:mm";
+			
+			
+			SimpleDateFormat formater= new SimpleDateFormat(format);
+			java.util.Date date = new java.util.Date();
+			com.itextpdf.text.Image img = com.itextpdf.text.Image.getInstance("B:\\Eclipse Workspace\\Cabinet\\src\\imagese\\cabinet.png");
+			img.setAlignment(com.itextpdf.text.Image.ALIGN_CENTER);
+			doc.add(img);
+			Font boldFont = FontFactory.getFont(FontFactory.TIMES_ROMAN, 20, Font.BOLD, BaseColor.BLACK);
+			Font txt = FontFactory.getFont(FontFactory.TIMES_ROMAN, 14, Font.NORMAL, BaseColor.BLACK);
+			
+			Paragraph nomp = new Paragraph();
+			nomp.setAlignment(Element.ALIGN_CENTER);
+			nomp.setFont(txt);
+			nomp.add("\n     "+txt_nom.getText().toUpperCase()+"                "+txt_prenom.getText().toUpperCase()+"                "+txt_age.getText()+"ans"+"                Le :"+Date);
+			
+			Paragraph paragraph = new Paragraph();
+			paragraph.setAlignment(Element.ALIGN_CENTER);
+			paragraph.setFont(boldFont);
+			paragraph.add("\n \n ORDONANCE");
+			
+			Paragraph medic = new Paragraph();
+			medic.setAlignment(Element.ALIGN_LEFT);
+			medic.setFont(txt);
+			medic.add("\n"+txt_ord.getText());
+			
+			doc.add(nomp);
+			doc.add(paragraph);
+			doc.add(medic);
+			
+
+			doc.close();
+			Desktop.getDesktop().open(new File("ordonance.pdf"));
+			
+			
+		} catch (FileNotFoundException | DocumentException e) {
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    		
+    	}
+    	
+
+    }
+
+    @FXML
+    void prix(MouseEvent event) {
+
+    }
+
+	
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:561)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1148)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1325)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2023-06-05 17:30:33.135
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:561)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1148)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1325)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2023-06-05 17:30:33.136
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:561)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1148)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1325)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-06-05 17:30:33.525
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package controller;
+
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.text.*;
+import java.time.LocalDate;
+
+
+
+
+public class PrescreptionController implements Initializable {
+	
+	@FXML
+    private TextField txt_nom;
+
+    @FXML
+    private TextField txt_prenom;
+
+    @FXML
+    private TextField txt_age;
+    
+    @FXML
+    private DatePicker txt_date;
+
+    @FXML
+    private TextArea txt_ord;
+
+    @FXML
+    private TextField txt_prix;
+
+    @FXML
+    private TextArea txt_ps;
+
+    @FXML
+    void imprimmer(MouseEvent event) {
+    	
+    	LocalDate Date = txt_date.getValue();
+    	Document doc = new Document();
+    	Document doc1 = new Document();
+    	
+    	if(txt_ps.getText()==null) {
+    	try {
+			PdfWriter.getInstance(doc, new FileOutputStream("ordonance.pdf"));
+			doc.open();
+			String format ="dd/mm/yy hh:mm";
+			
+			
+			SimpleDateFormat formater= new SimpleDateFormat(format);
+			java.util.Date date = new java.util.Date();
+			com.itextpdf.text.Image img = com.itextpdf.text.Image.getInstance("B:\\Eclipse Workspace\\Cabinet\\src\\imagese\\cabinet.png");
+			img.setAlignment(com.itextpdf.text.Image.ALIGN_CENTER);
+			doc.add(img);
+			Font boldFont = FontFactory.getFont(FontFactory.TIMES_ROMAN, 20, Font.BOLD, BaseColor.BLACK);
+			Font txt = FontFactory.getFont(FontFactory.TIMES_ROMAN, 14, Font.NORMAL, BaseColor.BLACK);
+			
+			Paragraph nomp = new Paragraph();
+			nomp.setAlignment(Element.ALIGN_CENTER);
+			nomp.setFont(txt);
+			nomp.add("\n     "+txt_nom.getText().toUpperCase()+"                "+txt_prenom.getText().toUpperCase()+"                "+txt_age.getText()+"ans"+"                Le :"+Date);
+			
+			Paragraph paragraph = new Paragraph();
+			paragraph.setAlignment(Element.ALIGN_CENTER);
+			paragraph.setFont(boldFont);
+			paragraph.add("\n \n ORDONANCE");
+			
+			Paragraph medic = new Paragraph();
+			medic.setAlignment(Element.ALIGN_LEFT);
+			medic.setFont(txt);
+			medic.add("\n"+txt_ord.getText());
+			
+			doc.add(nomp);
+			doc.add(paragraph);
+			doc.add(medic);
+			
+
+			doc.close();
+			Desktop.getDesktop().open(new File("ordonance.pdf"));
+			
+			
+		} catch (FileNotFoundException | DocumentException e) {
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	
+    	
+    	
+    	}
+    	
+    	else {
+    		PdfWriter.getInstance(doc, new FileOutputStream("ordonance.pdf"));
+			doc.open();
+			String format ="dd/mm/yy hh:mm";
+			
+			
+			SimpleDateFormat formater= new SimpleDateFormat(format);
+			java.util.Date date = new java.util.Date();
+			com.itextpdf.text.Image img = com.itextpdf.text.Image.getInstance("B:\\Eclipse Workspace\\Cabinet\\src\\imagese\\cabinet.png");
+			img.setAlignment(com.itextpdf.text.Image.ALIGN_CENTER);
+			doc.add(img);
+			Font boldFont = FontFactory.getFont(FontFactory.TIMES_ROMAN, 20, Font.BOLD, BaseColor.BLACK);
+			Font txt = FontFactory.getFont(FontFactory.TIMES_ROMAN, 14, Font.NORMAL, BaseColor.BLACK);
+			
+			Paragraph nomp = new Paragraph();
+			nomp.setAlignment(Element.ALIGN_CENTER);
+			nomp.setFont(txt);
+			nomp.add("\n     "+txt_nom.getText().toUpperCase()+"                "+txt_prenom.getText().toUpperCase()+"                "+txt_age.getText()+"ans"+"                Le :"+Date);
+			
+			Paragraph paragraph = new Paragraph();
+			paragraph.setAlignment(Element.ALIGN_CENTER);
+			paragraph.setFont(boldFont);
+			paragraph.add("\n \n ORDONANCE");
+			
+			Paragraph medic = new Paragraph();
+			medic.setAlignment(Element.ALIGN_LEFT);
+			medic.setFont(txt);
+			medic.add("\n"+txt_ord.getText());
+			
+			doc.add(nomp);
+			doc.add(paragraph);
+			doc.add(medic);
+			
+
+			doc.close();
+			Desktop.getDesktop().open(new File("ordonance.pdf"));
+			
+			
+		} catch (FileNotFoundException | DocumentException e) {
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    		
+    	}
+    	
+
+    }
+
+    @FXML
+    void prix(MouseEvent event) {
+
+    }
+
+	
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 2 2023-06-05 17:30:33.526
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core.manipulation".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 0 2023-06-05 17:30:33.526
+!MESSAGE Error in JDT Core during AST creation
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-06-05 17:30:49.359
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package controller;
+
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.text.*;
+import java.time.LocalDate;
+
+
+
+
+public class PrescreptionController implements Initializable {
+	
+	@FXML
+    private TextField txt_nom;
+
+    @FXML
+    private TextField txt_prenom;
+
+    @FXML
+    private TextField txt_age;
+    
+    @FXML
+    private DatePicker txt_date;
+
+    @FXML
+    private TextArea txt_ord;
+
+    @FXML
+    private TextField txt_prix;
+
+    @FXML
+    private TextArea txt_ps;
+
+    @FXML
+    void imprimmer(MouseEvent event) {
+    	
+    	LocalDate Date = txt_date.getValue();
+    	Document doc = new Document();
+    	Document doc1 = new Document();
+    	
+    	if(txt_ps.getText()==null) {
+    	try {
+			PdfWriter.getInstance(doc, new FileOutputStream("ordonance.pdf"));
+			doc.open();
+			String format ="dd/mm/yy hh:mm";
+			
+			
+			SimpleDateFormat formater= new SimpleDateFormat(format);
+			java.util.Date date = new java.util.Date();
+			com.itextpdf.text.Image img = com.itextpdf.text.Image.getInstance("B:\\Eclipse Workspace\\Cabinet\\src\\imagese\\cabinet.png");
+			img.setAlignment(com.itextpdf.text.Image.ALIGN_CENTER);
+			doc.add(img);
+			Font boldFont = FontFactory.getFont(FontFactory.TIMES_ROMAN, 20, Font.BOLD, BaseColor.BLACK);
+			Font txt = FontFactory.getFont(FontFactory.TIMES_ROMAN, 14, Font.NORMAL, BaseColor.BLACK);
+			
+			Paragraph nomp = new Paragraph();
+			nomp.setAlignment(Element.ALIGN_CENTER);
+			nomp.setFont(txt);
+			nomp.add("\n     "+txt_nom.getText().toUpperCase()+"                "+txt_prenom.getText().toUpperCase()+"                "+txt_age.getText()+"ans"+"                Le :"+Date);
+			
+			Paragraph paragraph = new Paragraph();
+			paragraph.setAlignment(Element.ALIGN_CENTER);
+			paragraph.setFont(boldFont);
+			paragraph.add("\n \n ORDONANCE");
+			
+			Paragraph medic = new Paragraph();
+			medic.setAlignment(Element.ALIGN_LEFT);
+			medic.setFont(txt);
+			medic.add("\n"+txt_ord.getText());
+			
+			doc.add(nomp);
+			doc.add(paragraph);
+			doc.add(medic);
+			
+
+			doc.close();
+			Desktop.getDesktop().open(new File("ordonance.pdf"));
+			
+			
+		} catch (FileNotFoundException | DocumentException e) {
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	
+    	
+    	
+    	}
+    	
+    	else {
+    		PdfWriter.getInstance(doc, new FileOutputStream("ordonance.pdf"));
+			doc.open();
+			String format ="dd/mm/yy hh:mm";
+			
+			
+			SimpleDateFormat formater= new SimpleDateFormat(format);
+			java.util.Date date = new java.util.Date();
+			com.itextpdf.text.Image img = com.itextpdf.text.Image.getInstance("B:\\Eclipse Workspace\\Cabinet\\src\\imagese\\cabinet.png");
+			img.setAlignment(com.itextpdf.text.Image.ALIGN_CENTER);
+			doc.add(img);
+			Font boldFont = FontFactory.getFont(FontFactory.TIMES_ROMAN, 20, Font.BOLD, BaseColor.BLACK);
+			Font txt = FontFactory.getFont(FontFactory.TIMES_ROMAN, 14, Font.NORMAL, BaseColor.BLACK);
+			
+			Paragraph nomp = new Paragraph();
+			nomp.setAlignment(Element.ALIGN_CENTER);
+			nomp.setFont(txt);
+			nomp.add("\n     "+txt_nom.getText().toUpperCase()+"                "+txt_prenom.getText().toUpperCase()+"                "+txt_age.getText()+"ans"+"                Le :"+Date);
+			
+			Paragraph paragraph = new Paragraph();
+			paragraph.setAlignment(Element.ALIGN_CENTER);
+			paragraph.setFont(boldFont);
+			paragraph.add("\n \n ORDONANCE");
+			
+			Paragraph medic = new Paragraph();
+			medic.setAlignment(Element.ALIGN_LEFT);
+			medic.setFont(txt);
+			medic.add("\n"+txt_ord.getText());
+			
+			doc.add(nomp);
+			doc.add(paragraph);
+			doc.add(medic);
+			
+
+			doc.close();
+			Desktop.getDesktop().open(new File("ordonance.pdf"));
+			
+			
+		} catch (FileNotFoundException | DocumentException e) {
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    		
+    	}
+    	
+
+    }
+
+    @FXML
+    void prix(MouseEvent event) {
+
+    }
+
+	
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.text.java.hover.NLSStringHover.internalGetHoverInfo(NLSStringHover.java:141)
+	at org.eclipse.jdt.internal.ui.text.java.hover.NLSStringHover.getHoverInfo2(NLSStringHover.java:120)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 2 2023-06-05 17:30:49.360
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core.manipulation".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.text.java.hover.NLSStringHover.internalGetHoverInfo(NLSStringHover.java:141)
+	at org.eclipse.jdt.internal.ui.text.java.hover.NLSStringHover.getHoverInfo2(NLSStringHover.java:120)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 0 2023-06-05 17:30:49.361
+!MESSAGE Error in JDT Core during AST creation
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.text.java.hover.NLSStringHover.internalGetHoverInfo(NLSStringHover.java:141)
+	at org.eclipse.jdt.internal.ui.text.java.hover.NLSStringHover.getHoverInfo2(NLSStringHover.java:120)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-06-05 17:30:49.385
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package controller;
+
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.text.*;
+import java.time.LocalDate;
+
+
+
+
+public class PrescreptionController implements Initializable {
+	
+	@FXML
+    private TextField txt_nom;
+
+    @FXML
+    private TextField txt_prenom;
+
+    @FXML
+    private TextField txt_age;
+    
+    @FXML
+    private DatePicker txt_date;
+
+    @FXML
+    private TextArea txt_ord;
+
+    @FXML
+    private TextField txt_prix;
+
+    @FXML
+    private TextArea txt_ps;
+
+    @FXML
+    void imprimmer(MouseEvent event) {
+    	
+    	LocalDate Date = txt_date.getValue();
+    	Document doc = new Document();
+    	Document doc1 = new Document();
+    	
+    	if(txt_ps.getText()==null) {
+    	try {
+			PdfWriter.getInstance(doc, new FileOutputStream("ordonance.pdf"));
+			doc.open();
+			String format ="dd/mm/yy hh:mm";
+			
+			
+			SimpleDateFormat formater= new SimpleDateFormat(format);
+			java.util.Date date = new java.util.Date();
+			com.itextpdf.text.Image img = com.itextpdf.text.Image.getInstance("B:\\Eclipse Workspace\\Cabinet\\src\\imagese\\cabinet.png");
+			img.setAlignment(com.itextpdf.text.Image.ALIGN_CENTER);
+			doc.add(img);
+			Font boldFont = FontFactory.getFont(FontFactory.TIMES_ROMAN, 20, Font.BOLD, BaseColor.BLACK);
+			Font txt = FontFactory.getFont(FontFactory.TIMES_ROMAN, 14, Font.NORMAL, BaseColor.BLACK);
+			
+			Paragraph nomp = new Paragraph();
+			nomp.setAlignment(Element.ALIGN_CENTER);
+			nomp.setFont(txt);
+			nomp.add("\n     "+txt_nom.getText().toUpperCase()+"                "+txt_prenom.getText().toUpperCase()+"                "+txt_age.getText()+"ans"+"                Le :"+Date);
+			
+			Paragraph paragraph = new Paragraph();
+			paragraph.setAlignment(Element.ALIGN_CENTER);
+			paragraph.setFont(boldFont);
+			paragraph.add("\n \n ORDONANCE");
+			
+			Paragraph medic = new Paragraph();
+			medic.setAlignment(Element.ALIGN_LEFT);
+			medic.setFont(txt);
+			medic.add("\n"+txt_ord.getText());
+			
+			doc.add(nomp);
+			doc.add(paragraph);
+			doc.add(medic);
+			
+
+			doc.close();
+			Desktop.getDesktop().open(new File("ordonance.pdf"));
+			
+			
+		} catch (FileNotFoundException | DocumentException e) {
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	
+    	
+    	
+    	}
+    	
+    	else {
+    		PdfWriter.getInstance(doc, new FileOutputStream("ordonance.pdf"));
+			doc.open();
+			String format ="dd/mm/yy hh:mm";
+			
+			
+			SimpleDateFormat formater= new SimpleDateFormat(format);
+			java.util.Date date = new java.util.Date();
+			com.itextpdf.text.Image img = com.itextpdf.text.Image.getInstance("B:\\Eclipse Workspace\\Cabinet\\src\\imagese\\cabinet.png");
+			img.setAlignment(com.itextpdf.text.Image.ALIGN_CENTER);
+			doc.add(img);
+			Font boldFont = FontFactory.getFont(FontFactory.TIMES_ROMAN, 20, Font.BOLD, BaseColor.BLACK);
+			Font txt = FontFactory.getFont(FontFactory.TIMES_ROMAN, 14, Font.NORMAL, BaseColor.BLACK);
+			
+			Paragraph nomp = new Paragraph();
+			nomp.setAlignment(Element.ALIGN_CENTER);
+			nomp.setFont(txt);
+			nomp.add("\n     "+txt_nom.getText().toUpperCase()+"                "+txt_prenom.getText().toUpperCase()+"                "+txt_age.getText()+"ans"+"                Le :"+Date);
+			
+			Paragraph paragraph = new Paragraph();
+			paragraph.setAlignment(Element.ALIGN_CENTER);
+			paragraph.setFont(boldFont);
+			paragraph.add("\n \n ORDONANCE");
+			
+			Paragraph medic = new Paragraph();
+			medic.setAlignment(Element.ALIGN_LEFT);
+			medic.setFont(txt);
+			medic.add("\n"+txt_ord.getText());
+			
+			doc.add(nomp);
+			doc.add(paragraph);
+			doc.add(medic);
+			
+
+			doc.close();
+			Desktop.getDesktop().open(new File("ordonance.pdf"));
+			
+			
+		} catch (FileNotFoundException | DocumentException e) {
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    		
+    	}
+    	
+
+    }
+
+    @FXML
+    void prix(MouseEvent event) {
+
+    }
+
+	
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+	}
+
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoveredASTNode(JavadocHover.java:1003)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getInfoText(JavadocHover.java:799)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo(JavadocHover.java:743)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.internalGetHoverInfo(JavadocHover.java:666)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo2(JavadocHover.java:658)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 2 2023-06-05 17:30:49.386
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core.manipulation".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoveredASTNode(JavadocHover.java:1003)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getInfoText(JavadocHover.java:799)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo(JavadocHover.java:743)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.internalGetHoverInfo(JavadocHover.java:666)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo2(JavadocHover.java:658)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 0 2023-06-05 17:30:49.386
+!MESSAGE Error in JDT Core during AST creation
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoveredASTNode(JavadocHover.java:1003)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getInfoText(JavadocHover.java:799)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo(JavadocHover.java:743)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.internalGetHoverInfo(JavadocHover.java:666)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo2(JavadocHover.java:658)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+!SESSION 2023-06-06 01:00:17.440 -----------------------------------------------
+eclipse.buildId=4.27.0.20230309-1200
+java.version=17.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product -data B:/Eclipse Workspace -product org.eclipse.epp.package.java.product
+
+!ENTRY ch.qos.logback.classic 1 0 2023-06-06 01:00:23.157
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2023-06-06 01:00:31.608
+!MESSAGE Logback config file: B:\Eclipse Workspace\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.1.100.20230106-1511.xml
+
+!ENTRY org.eclipse.jface 2 0 2023-06-06 01:00:41.610
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-06-06 01:00:41.614
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-06-06 01:00:41.614
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.edit.text.java.rename.element"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
+		Rename the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.ui.edit.rename"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-06-06 01:00:55.542
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\NAZIM'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2023-06-06 02:01:03.499 -----------------------------------------------
+eclipse.buildId=4.27.0.20230309-1200
+java.version=17.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product -data B:/Eclipse Workspace -product org.eclipse.epp.package.java.product
+
+!ENTRY ch.qos.logback.classic 1 0 2023-06-06 02:01:10.232
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2023-06-06 02:01:19.532
+!MESSAGE Logback config file: B:\Eclipse Workspace\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.1.100.20230106-1511.xml
+
+!ENTRY org.eclipse.jface 2 0 2023-06-06 02:01:26.820
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-06-06 02:01:26.820
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-06-06 02:01:26.820
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.edit.text.java.rename.element"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
+		Rename the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.ui.edit.rename"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-06-06 02:01:38.812
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\NAZIM'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2023-06-06 09:11:18.689 -----------------------------------------------
+eclipse.buildId=4.27.0.20230309-1200
+java.version=17.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY ch.qos.logback.classic 1 0 2023-06-06 09:11:29.186
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2023-06-06 09:12:24.849
+!MESSAGE Logback config file: B:\Eclipse Workspace\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.1.100.20230106-1511.xml
+
+!ENTRY org.eclipse.jface 2 0 2023-06-06 09:12:29.969
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-06-06 09:12:29.969
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-06-06 09:12:29.969
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.edit.text.java.rename.element"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
+		Rename the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.ui.edit.rename"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-06-06 09:12:40.758
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\NAZIM'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2023-06-06 12:32:30.076 -----------------------------------------------
+eclipse.buildId=4.27.0.20230309-1200
+java.version=17.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY ch.qos.logback.classic 1 0 2023-06-06 12:32:43.491
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2023-06-06 12:32:59.756
+!MESSAGE Logback config file: B:\Eclipse Workspace\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.1.100.20230106-1511.xml
+
+!ENTRY org.eclipse.jface 2 0 2023-06-06 12:33:04.244
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-06-06 12:33:04.245
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-06-06 12:33:04.245
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.edit.text.java.rename.element"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
+		Rename the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.ui.edit.rename"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-06-06 12:33:15.915
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\NAZIM'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.

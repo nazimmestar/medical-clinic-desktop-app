@@ -1,0 +1,196 @@
+package controller;
+
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Time;
+import java.time.ZoneId;
+import java.util.ResourceBundle;
+
+import application.ConnexionMysql;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import models.Agenda;
+import models.Liste;
+
+public class GererListeAttenteController implements Initializable {
+	
+	Connection cnx;
+    public PreparedStatement st;
+    public ResultSet result ;
+	
+	    @FXML
+	    private TextField txt_nom;
+
+	    @FXML
+	    private TextField txt_prenom;
+
+	    @FXML
+	    private TextField txt_tel;
+
+	    @FXML
+	    private TextField txt_heure;
+
+	    @FXML
+	    private TableView<Liste> table_liste;
+
+	    @FXML
+	    private TableColumn<Liste, Integer> cln_id;
+
+	    @FXML
+	    private TableColumn<Liste, String> cln_nom;
+
+	    @FXML
+	    private TableColumn<Liste, String> cln_prenom;
+
+	    @FXML
+	    private TableColumn<Liste, String> cln_tel;
+
+	    @FXML
+	    private TableColumn<Liste, String> cln_heure;
+	    
+	    public ObservableList<Liste> data = FXCollections.observableArrayList();
+
+
+	    @FXML
+	    void ajouter(MouseEvent event) {
+	    	String nom =txt_nom.getText();
+	    	String prenom =txt_prenom.getText();
+	    	String tel =txt_tel.getText();
+	    	String heure =txt_heure.getText();
+	    	
+	    	String sql="insert into liste (nom,prenom,numTel,heure) values(?,?,?,?)";
+	    	if(!nom.equals("")&&!prenom.equals("")&&!tel.equals("")&&!heure.equals("")) {
+	    		try {
+					st=cnx.prepareStatement(sql);
+					st.setString(1, nom);
+					st.setString(2, prenom);
+					st.setString(3, tel);
+					st.setString(4, heure);
+					st.execute();
+					txt_nom.setText("");
+				    txt_prenom.setText("");
+				    txt_tel.setText("");
+				    txt_heure.setText("");
+				    Alert alert = new Alert(AlertType.CONFIRMATION,"ajouté a la liste avec succès!",javafx.scene.control.ButtonType.OK);
+				    alert.showAndWait();
+				    showListe();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} 
+	    	} else {
+	    		Alert alert = new Alert(AlertType.WARNING,"veuillez remplir tous les champs!",javafx.scene.control.ButtonType.OK);
+			    alert.showAndWait();
+	    	}
+
+	    }
+
+	    @FXML
+	    void modifier(MouseEvent event) {
+	    	String nom =txt_nom.getText();
+	    	String prenom =txt_prenom.getText();
+	    	String tel =txt_tel.getText();
+	    	String heure =txt_heure.getText();
+	        Liste selectedListe = table_liste.getSelectionModel().getSelectedItem();
+	        String sql="update liste set nom=?,prenom=?,numTel=?,heure=? where idL ='"+selectedListe.getId()+"'" ;
+	        try {
+				st=cnx.prepareStatement(sql);
+				st.setString(1, nom);
+				st.setString(2, prenom);
+				st.setString(3, tel);
+				st.setString(4, heure);
+				st.execute();
+				txt_nom.setText("");
+			    txt_prenom.setText("");
+			    txt_tel.setText("");
+			    txt_heure.setText("");
+			    Alert alert = new Alert(AlertType.CONFIRMATION," modifié avec succès!",javafx.scene.control.ButtonType.OK);
+			    alert.showAndWait();
+			    showListe();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+
+	    }
+
+	    @FXML
+	    void supprimer(MouseEvent event) {
+
+	    }
+
+	    
+	    
+	    
+	    public void showListe() {
+	    	table_liste.getItems().clear();
+	    	String sql ="select * from liste";
+	        try {
+				st=cnx.prepareStatement(sql);
+				result=st.executeQuery();
+				while(result.next()) {
+					data.add(new Liste(result.getInt("idL"),result.getString("nom"),result.getString("prenom"),result.getString("numTel"),result.getString("heure")));
+				}
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
+	        
+	        cln_id.setCellValueFactory(new PropertyValueFactory<Liste, Integer>("id"));
+	        cln_nom.setCellValueFactory(new PropertyValueFactory<Liste, String>("nom"));
+	        cln_prenom.setCellValueFactory(new PropertyValueFactory<Liste, String>("prenom"));
+	        cln_tel.setCellValueFactory(new PropertyValueFactory<Liste, String>("tel"));
+	        cln_heure.setCellValueFactory(new PropertyValueFactory<Liste, String>("heure"));
+	        table_liste.setItems(data);
+	        
+	    }
+	    
+	    
+	    
+	
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		cnx = ConnexionMysql.connexionDB();
+		showListe();
+		table_liste.setOnMouseClicked(event -> {
+	        Liste selectedListe = table_liste.getSelectionModel().getSelectedItem();
+	        String sql="select idL,nom,prenom,numTel,heure from liste where idL ='"+selectedListe.getId()+"'" ;
+	        
+	      
+	    	try {
+				st=cnx.prepareStatement(sql);
+				result=st.executeQuery();
+				if(result.next()) {
+					txt_nom.setText(result.getString("nom"));
+					txt_prenom.setText(result.getString("prenom"));
+					txt_tel.setText(result.getString("numTel"));
+					Time timeValue = result.getTime("heure");
+					String formattedTime = timeValue.toString();
+					txt_heure.setText(formattedTime);
+
+					
+				}
+			
+	    	} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    });
+
+		
+	}
+
+}

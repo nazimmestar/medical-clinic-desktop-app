@@ -1,0 +1,120 @@
+.parent{
+	-fx-background-color: transparent ;
+}
+
+.pane{
+	-fx-background-color:  #0A4D68;
+
+}
+
+.panne{
+	-fx-background-color: #088395;
+}
+
+.pane2{
+	-fx-background-radius: 5px;
+}
+
+.sidebarItem{
+	-fx-background-color: Transparent;
+}
+
+.sidebarItem:hover{
+	
+	-fx-border-color:  white;
+	-fx-border-width: 0px 0px 0px 3px; 
+}
+
+.sidebarItem:pressed{
+	
+	-fx-border-color: white;
+	-fx-border-width: 0px 0px 2px 0px; 
+}
+
+.trans-btn-white-border{
+	-fx-background-color: transparent ;
+	-fx-background-radius: 5px;
+	-fx-border-color: #cccccc;
+	-fx-border-radius: 5px;
+	-fx-border-width: 1px;
+	-fx-text-fill: whitesmoke;
+}
+
+.white-pane{
+	-fx-background-image: url("/imagese/signIn1.jpg");
+	-fx-background-size : 281 386;
+	-fx-background-position: center center;
+	-fx-background-color: #ffffff;	
+	
+}
+
+.imageP{
+	    -fx-graphic: url("/imagese/patients.jpg");
+        -fx-graphic-text-gap : 10;
+	
+}
+
+.tf-box{
+	-fx-background-color: transparent ;
+	-fx-border-color: #dedee4;
+	-fx-border-width: 0px 0px 1px 0px;
+}
+
+.tf{
+	-fx-background-color: transparent;
+	-fx-prompt-text-fill: #2c2c2c;
+}
+
+.pink-btn{
+	-fx-background-color: #c5304d;
+	-fx-background-radius: 5px;
+	-fx-text-fill: #ffffff;
+}
+
+.green-btn{
+	-fx-background-color: #3ecc00;
+	-fx-background-radius: 5px;
+	-fx-text-fill: #ffffff;
+}
+
+
+.backgrnd{
+	-fx-background-color: #e7e7e7;
+	-fx-background-radius: 0px ; 
+}
+
+.table-view{
+	-fx-background-color: transparent;
+}
+
+.table-view:focused{
+	-fx-background-color: transparent;
+}
+
+.table-view .column-header-background{
+	-fx-background-color: linear-gradient(#131313 0%, #424141 100%);
+}
+
+.table-view .column-header-background .label{
+	-fx-background-color: transparent;
+	-fx-text-fill: white;
+}
+
+.table-view .column-header{
+	-fx-background-color: transparent;
+}
+
+.table-view .table-cell{
+	-fx-text-fill: black;
+}
+
+
+
+.buttons{
+	-fx-background-color: #0c0c0c;
+	-fx-background-radius: 5px;
+	-fx-text-fill: #ffffff;
+}
+
+.root { -fx-background-color: transparent; }
+

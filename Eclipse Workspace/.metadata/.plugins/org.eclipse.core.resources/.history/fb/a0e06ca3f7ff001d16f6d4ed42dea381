@@ -1,0 +1,112 @@
+package server;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import application.ConnexionMysql;
+import client.Client;
+import controller.SigninController;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.scene.layout.VBox;
+
+
+
+class ClientHandler extends Thread { 
+	
+	private Client client;
+	private Parent fxml;
+    
+    Connection cnx;
+    public PreparedStatement st;
+    public ResultSet result ;
+    
+	
+	
+ 
+ final Socket socket; 
+ final BufferedReader input;
+ final PrintWriter output; 
+
+ public ClientHandler(Socket socket, BufferedReader input, PrintWriter output){ 
+     this.socket = socket; 
+     this.input = input; 
+     this.output = output; 
+ } 
+
+ public void run(){ 
+	 cnx =ConnexionMysql.connexionDB();
+     boolean loop = true;
+     while (loop){ 
+       try { 
+       	 
+       	 String message = (String) input.readLine();
+         if(message.equalsIgnoreCase("Exit")) {  
+           System.out.println("Client " + this.socket + " envoie exit..."); 
+           System.out.println("Fermeture de cette connexion."); 
+           System.out.println("Connection ferm�e"); 
+           loop = false; 
+           this.socket.close();	   this.input.close();    this.output.close();
+         }else{
+        	 
+        	 
+        	 String username = message.substring(0, message.indexOf('.'));
+     		 String password = message.substring(message.indexOf('.')+1, message.length());
+     		String sql ="select userName, password from admin";
+	    	try {
+				st=cnx.prepareStatement(sql);
+				result=st.executeQuery();
+				
+				if(result.next()) {
+					
+
+			    	if(username.equals(result.getString("userName"))&&password.equals(result.getString("password"))) {
+			    		System.out.println("CORRECET !");
+			    		
+			    		Stage home =new Stage();
+			    		try {
+							fxml = FXMLLoader.load(getClass().getResource("/interfacess/ok.fxml"));
+							Scene scene = new Scene(fxml);
+							home.setScene(scene);
+							home.show();
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+			    		
+			    	}
+			    	else {
+			    		Alert alert =new Alert(AlertType.ERROR,"nom de l'utilisateur ou mot de passe incorect !", javafx.scene.control.ButtonType.OK);
+			    		alert.showAndWait();
+			    	}
+
+				            	
+				}
+				
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+     		 
+        	 
+            	//output.println(message.toUpperCase());
+            	 
+            	 
+         } 
+       } catch (IOException e) { 
+             e.printStackTrace(); 
+       } 
+     }//end of while (loop){   
+ }//end of run() 
+} //end of ClientHandler 

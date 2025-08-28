@@ -1,0 +1,75 @@
+package controller;
+
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import models.Liste;
+
+public class GererListeAttenteController implements Initializable {
+	
+	Connection cnx;
+    public PreparedStatement st;
+    public ResultSet result ;
+	
+	    @FXML
+	    private TextField txt_nom;
+
+	    @FXML
+	    private TextField txt_prenom;
+
+	    @FXML
+	    private TextField txt_tel;
+
+	    @FXML
+	    private TextField txt_heure;
+
+	    @FXML
+	    private TableView<Liste> table_liste;
+
+	    @FXML
+	    private TableColumn<Liste, Integer> cln_id;
+
+	    @FXML
+	    private TableColumn<Liste, String> cln_nom;
+
+	    @FXML
+	    private TableColumn<Liste, String> cln_prenom;
+
+	    @FXML
+	    private TableColumn<Liste, String> cln_tel;
+
+	    @FXML
+	    private TableColumn<Liste, String> cln_heure;
+
+	    @FXML
+	    void ajouter(MouseEvent event) {
+
+	    }
+
+	    @FXML
+	    void modifier(MouseEvent event) {
+
+	    }
+
+	    @FXML
+	    void supprimer(MouseEvent event) {
+
+	    }
+
+	
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+	}
+
+}

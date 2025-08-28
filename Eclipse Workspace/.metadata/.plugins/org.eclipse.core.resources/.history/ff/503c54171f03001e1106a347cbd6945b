@@ -1,0 +1,28 @@
+package models;
+
+import java.sql.Date;
+
+public class Liste {
+	
+	int id ;
+	String nom;
+	String prenom;
+	String tel;
+	String heure;
+	
+
+	public Liste() {
+		super();
+	}
+    public Liste(int id , String nom , String prenom , String tel , String heure ) {
+    	
+    	this.id=id;
+    	this.nom=nom;
+    	this.prenom=prenom;
+    	this.tel=tel;
+    	this.heure=heure;		
+    	
+
+    }
+
+}

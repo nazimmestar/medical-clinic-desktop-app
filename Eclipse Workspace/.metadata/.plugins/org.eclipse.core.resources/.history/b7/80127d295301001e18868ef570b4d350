@@ -1,0 +1,278 @@
+package controller;
+
+import javafx.scene.control.TextArea;
+import java.io.IOException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.ZoneId;
+import java.util.ResourceBundle;
+
+import application.ConnexionMysql;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.cell.PropertyValueFactory;
+import models.Patients;
+
+public class AjouterPatientsController implements Initializable {
+	    
+	Connection cnx;
+    public PreparedStatement st;
+    public ResultSet result ;
+	 
+
+        @FXML
+        private AnchorPane root;
+        private Parent fxml;   
+     
+        @FXML
+	    private TableView<Patients> table_patients;
+
+	    @FXML
+	    private TableColumn<Patients, Integer> cln_id;
+
+	    @FXML
+	    private TableColumn<Patients, String> cln_nom;
+
+	    @FXML
+	    private TableColumn<Patients, String> cln_prenom;
+
+	    @FXML
+	    private TableColumn<Patients, Date> cln_dateN;
+
+	    @FXML
+	    private TableColumn<Patients, String> cln_age;
+
+	    @FXML
+	    private TableColumn<Patients, String> cln_adresse;
+
+	    @FXML
+	    private TableColumn<Patients, String> cln_tel;
+
+	    @FXML
+	    private TableColumn<Patients, String> cln_consultation;
+
+	    @FXML
+	    private DatePicker DatePicker;
+
+	    @FXML
+	    private TextField txt_search;
+
+	    @FXML
+	    private TextField txt_nom;
+
+	    @FXML
+	    private TextField txt_prenom;
+
+	    @FXML
+	    private TextField txt_tel;
+
+	    @FXML
+	    private TextField txt_age;
+
+	    @FXML
+	    private TextField txt_adresse;
+
+	    @FXML
+	    private TextArea txt_maladies;
+
+	    @FXML
+	    private Button txt_add;
+
+	    @FXML
+	    private Button txt_modifier;
+
+	    @FXML
+	    private Button txt_supprimer;
+	    
+	    @FXML
+	    private Button finish;
+	    
+	    public ObservableList<Patients> data = FXCollections.observableArrayList();
+
+	    @FXML
+	    void addPatient(MouseEvent event) {
+	    	
+	    	String nom =txt_nom.getText();
+	    	String prenom =txt_prenom.getText();
+	    	String tel =txt_tel.getText();
+	    	String age =txt_age.getText();
+	    	String adresse =txt_adresse.getText();
+	    	String maladies =txt_maladies.getText();
+	    	
+	    	String sql="insert into patients(nom,prenom,numTel,dateN,age,adresse,maladies) values(?,?,?,?,?,?,?)";
+	    	if(!nom.equals("")&&!prenom.equals("")&&!tel.equals("")&&!age.equals("")&&!adresse.equals("")&&!maladies.equals("")&&!DatePicker.getValue().equals(null)) {
+	    		try {
+					st=cnx.prepareStatement(sql);
+					st.setString(1, nom);
+					java.util.Date date =java.util.Date.from(DatePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+					Date sqlDate = new Date(date.getTime());
+					st.setDate(4, sqlDate);
+					st.setString(2, prenom);
+					st.setString(3, tel);
+					st.setString(5, age);
+					st.setString(6, adresse);
+					st.setString(7, maladies);
+					st.execute();
+					txt_nom.setText("");
+				    txt_prenom.setText("");
+				    txt_tel.setText("");
+				    DatePicker.setValue(null);
+				    txt_age.setText("");
+				    txt_adresse.setText("");
+				    txt_maladies.setText("");
+				    Alert alert = new Alert(AlertType.CONFIRMATION,"patient ajouté avec succès!",javafx.scene.control.ButtonType.OK);
+				    alert.showAndWait();
+				    showPatients();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+	    	} else {
+	    		Alert alert = new Alert(AlertType.WARNING,"veuillez remplir tous les cahmps!",javafx.scene.control.ButtonType.OK);
+			    alert.showAndWait();
+	    	}
+	    	
+	    	
+
+	    }
+
+	    @FXML
+	    void deletePatient(MouseEvent event) {
+
+	    }
+
+	    @FXML
+	    void editPatient(MouseEvent event) {
+
+	    }
+
+	    
+
+	    @FXML
+	    void searchPatients(MouseEvent event) {
+	    	String searchName = txt_search.getText();
+	        ObservableList<Patients> filteredList = data.filtered(patient -> patient.getNom().equalsIgnoreCase(searchName));
+	        
+	        if (!filteredList.isEmpty()) {
+	            table_patients.setItems(filteredList);
+	            table_patients.getSelectionModel().selectFirst(); // Select the first matching row
+	        } else {
+	            table_patients.getItems().clear(); // Clear the table if no matching rows
+	            Alert alert = new Alert(AlertType.ERROR, "Aucun patient trouvé avec le nom = " + searchName, ButtonType.OK);
+	            alert.showAndWait();
+	        }
+
+	    }
+
+	
+	  @FXML
+	    void retour(MouseEvent event) {
+		  
+		  try {
+				fxml = FXMLLoader.load(getClass().getResource("/interfacess/GererPatients.fxml"));
+				root.getChildren().removeAll();
+				root.getChildren().setAll(fxml);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+	    }
+
+    public void showPatients() {
+    	String sql ="select * from patients";
+        try {
+			st=cnx.prepareStatement(sql);
+			result=st.executeQuery();
+			while(result.next()) {
+				data.add(new Patients(result.getInt("idP"),result.getString("nom"),result.getString("prenom"),result.getDate("dateN"),result.getString("age"),result.getString("adresse"),result.getString("numTel")));
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+        
+        cln_id.setCellValueFactory(new PropertyValueFactory<Patients, Integer>("id"));
+        cln_nom.setCellValueFactory(new PropertyValueFactory<Patients, String>("nom"));
+        cln_prenom.setCellValueFactory(new PropertyValueFactory<Patients, String>("prenom"));
+        cln_dateN.setCellValueFactory(new PropertyValueFactory<Patients, Date>("dateNais"));
+        cln_age.setCellValueFactory(new PropertyValueFactory<Patients, String>("age"));
+        cln_adresse.setCellValueFactory(new PropertyValueFactory<Patients, String>("adresse"));
+        cln_tel.setCellValueFactory(new PropertyValueFactory<Patients, String>("tel"));
+        table_patients.setItems(data);
+        
+    }
+    
+    @FXML
+    void finish(MouseEvent event) {
+    	String a = txt_search.getText();
+    	if(a=="") {
+    		clearFields();
+    	}
+    	txt_search.setText(""); // Clear the search field
+        table_patients.getSelectionModel().clearSelection(); // Clear any row selection
+    	data.clear();
+    	showPatients();
+        clearFields();
+
+    }
+    
+    private void clearFields() {
+        txt_nom.setText("");
+        txt_prenom.setText("");
+        txt_tel.setText("");
+        DatePicker.setValue(null);
+        txt_age.setText("");
+        txt_adresse.setText("");
+        txt_maladies.setText("");
+    }
+	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		cnx = ConnexionMysql.connexionDB();
+		showPatients();
+		
+		table_patients.setOnMouseClicked(event -> {
+	        Patients selectedPatient = table_patients.getSelectionModel().getSelectedItem();
+	        String sql="select idP,nom,prenom,numTel,dateN,age,adresse,maladies from patients where nom ='"+selectedPatient.getNom()+"'";
+	    	
+	    	try {
+				st=cnx.prepareStatement(sql);
+				result=st.executeQuery();
+				if(result.next()) {
+					txt_nom.setText(result.getString("nom"));
+					txt_prenom.setText(result.getString("prenom"));
+					txt_tel.setText(result.getString("numTel"));
+					Date date= result.getDate("dateN");
+					DatePicker.setValue(date.toLocalDate());
+					txt_age.setText(result.getString("age"));
+					txt_adresse.setText(result.getString("adresse"));
+					txt_maladies.setText(result.getString("maladies"));
+				}
+			
+	    	} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    });
+		
+	}
+
+}

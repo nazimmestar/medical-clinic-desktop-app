@@ -1,0 +1,75 @@
+package controller;
+
+import java.io.IOException;
+import java.net.URL;
+import java.sql.*;
+import java.util.ResourceBundle;
+import javafx.scene.*;
+import application.ConnexionMysql;
+import client.Client;
+import javafx.scene.control.TextField;
+import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+
+
+
+public class SigninController implements Initializable{
+	
+	    private Client client;
+	    
+	    
+	    Connection cnx;
+	    public PreparedStatement st;
+	    public ResultSet result ;     
+	
+	    @FXML
+	    private TextField txt_user; // import javafx.scene.control.TextField;
+
+	    @FXML
+	    private TextField txt_pass;
+
+	    @FXML
+	    private Button btn_reset;
+
+	    @FXML
+	    private Button btn_connecter;
+	    
+	    @FXML
+	    private VBox VBox;
+	    
+	    private Parent fxml;
+	    
+
+	    @FXML
+	    void SendEmail() {
+
+	    }
+
+	    @FXML
+	    void openHome() {
+	    	
+	    	String user = txt_user.getText();
+	    	String pass = txt_pass.getText();
+	    	String res = this.client.sendRequest(user+"."+pass);
+	    	
+	    	
+	    	
+	    }
+	
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		this.client = new Client();
+		cnx =ConnexionMysql.connexionDB();	
+		
+	}
+
+}

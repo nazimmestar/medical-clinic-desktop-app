@@ -1,0 +1,53 @@
+package controller;
+
+import java.io.FileInputStream;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+
+public class SignUpController implements Initializable {
+	
+	Connection cnx;
+    public PreparedStatement st;
+    public ResultSet result ;
+    
+    private FileInputStream fs;
+	
+	 @FXML
+	    private TextField txt_user;
+
+	    @FXML
+	    private TextField txt_mail;
+
+	    @FXML
+	    private TextField txt_pass;
+
+	    @FXML
+	    void add(MouseEvent event) {
+
+	    }
+
+	    @FXML
+	    void import_image(MouseEvent event) {
+
+	    }
+
+	
+	
+
+	
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

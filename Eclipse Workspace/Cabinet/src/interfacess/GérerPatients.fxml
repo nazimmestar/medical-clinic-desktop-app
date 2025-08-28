@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="859.0" styleClass="backgrnd" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="20.0" layoutY="14.0" prefHeight="44.0" prefWidth="619.0" style="-fx-background-color: #0A4D68;" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <Label layoutX="333.0" layoutY="4.0" text="Gérer patients" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TableView layoutX="20.0" layoutY="309.0" prefHeight="248.0" prefWidth="687.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="152.0">
+         <columns>
+            <TableColumn prefWidth="61.666664123535156" text="id" />
+            <TableColumn prefWidth="91.33332824707031" text="Nom" />
+            <TableColumn prefWidth="91.66665649414062" text="Prénom" />
+            <TableColumn prefWidth="137.33334350585938" text="Adresse" />
+            <TableColumn prefWidth="97.0" text="Numèro Tel" />
+            <TableColumn prefWidth="67.6666259765625" text="Age" />
+            <TableColumn prefWidth="136.6666259765625" text="Derniere Consultation" />
+         </columns>
+      </TableView>
+      <Label layoutX="22.0" layoutY="72.0" text="Rechercher">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <JFXTextField layoutX="23.0" layoutY="121.0" prefHeight="25.0" prefWidth="102.0" promptText="Nom" />
+      <FontAwesomeIconView glyphName="SEARCH" layoutX="297.0" layoutY="94.0" size="25" />
+      <JFXButton buttonType="RAISED" layoutX="185.0" layoutY="568.0" prefHeight="33.0" prefWidth="91.0" styleClass="green-btn" text="Ajouter">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="304.0" layoutY="568.0" prefHeight="33.0" prefWidth="91.0" styleClass="buttons" text="Modifier">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="420.0" layoutY="568.0" prefHeight="33.0" prefWidth="91.0" styleClass="pink-btn" text="Supprimer">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <ImageView fitHeight="79.0" fitWidth="84.0" layoutX="744.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="31.0" />
+      <JFXTextField layoutX="123.0" layoutY="70.0" prefHeight="25.0" prefWidth="156.0" promptText="ID" />
+      <JFXTextField layoutX="140.0" layoutY="121.0" prefHeight="25.0" prefWidth="108.0" promptText="Prénom" />
+      <JFXTextField layoutX="23.0" layoutY="194.0" prefHeight="25.0" prefWidth="153.0" promptText="Adresse" />
+      <JFXTextField layoutX="23.0" layoutY="159.0" prefHeight="25.0" prefWidth="102.0" promptText="Numero Tél" />
+      <JFXTextArea layoutX="279.0" layoutY="132.0" prefHeight="88.0" prefWidth="173.0" promptText="les maladies qu'il a" />
+      <Separator layoutX="23.0" layoutY="114.0" prefHeight="5.0" prefWidth="476.0" />
+      <FontAwesomeIconView glyphName="UPLOAD" layoutX="463.0" layoutY="221.0" size="20" />
+      <Label layoutX="544.0" layoutY="167.0" text="acunne séléctionné" textFill="#0a4d68">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="767.0" layoutY="171.0" text="Image">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <DatePicker layoutX="139.0" layoutY="164.0" prefHeight="25.0" prefWidth="121.0" promptText="Date naissance" />
+      <JFXTextField layoutX="194.0" layoutY="194.0" prefHeight="25.0" prefWidth="55.0" promptText="Age" />
+   </children>
+</AnchorPane>

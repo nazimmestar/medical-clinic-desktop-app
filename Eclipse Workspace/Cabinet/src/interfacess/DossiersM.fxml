@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="859.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DossiersMController">
+   <children>
+      <Pane layoutX="30.0" layoutY="24.0" prefHeight="44.0" prefWidth="808.0" style="-fx-background-color: #00005C;" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="8.0">
+         <children>
+            <Label layoutX="282.0" layoutY="1.0" text="Dossiers Medicales" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <DatePicker layoutX="30.0" layoutY="129.0" prefHeight="25.0" prefWidth="121.0" promptText="Date naissance" />
+      <TextField layoutX="32.0" layoutY="88.0" prefHeight="25.0" prefWidth="117.0" promptText="Nom" />
+      <TextField layoutX="165.0" layoutY="88.0" prefHeight="25.0" prefWidth="117.0" promptText="Prenom" />
+      <TextField layoutX="296.0" layoutY="88.0" promptText="NumeroTel" />
+      <TextField layoutX="167.0" layoutY="129.0" prefHeight="25.0" prefWidth="63.0" promptText="Age" />
+      <TextField layoutX="248.0" layoutY="129.0" prefHeight="25.0" prefWidth="197.0" promptText="Adresse" />
+      <TextArea layoutX="31.0" layoutY="170.0" prefHeight="118.0" prefWidth="412.0" promptText="les maladies qu'il a" />
+      <TableView layoutX="478.0" layoutY="142.0" prefHeight="393.0" prefWidth="365.0">
+         <columns>
+            <TableColumn prefWidth="59.0" text="id" />
+            <TableColumn prefWidth="77.0" text="Nom" />
+            <TableColumn prefWidth="76.0" text="Prénom" />
+            <TableColumn prefWidth="145.33331298828125" text="Derniere Consultation" />
+         </columns>
+      </TableView>
+      <Pane layoutX="599.0" layoutY="83.0" prefHeight="34.0" prefWidth="228.0">
+         <children>
+            <Label layoutX="-1.0" layoutY="6.0" text="Rechercher">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Button layoutX="174.0" layoutY="5.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="Search" />
+            <TextField layoutX="89.0" layoutY="6.0" prefHeight="25.0" prefWidth="77.0" promptText="ID" />
+         </children>
+      </Pane>
+      <Separator layoutX="465.0" layoutY="80.0" orientation="VERTICAL" prefHeight="495.0" prefWidth="4.0">
+         <effect>
+            <DropShadow height="0.0" radius="1.0425" width="6.17" />
+         </effect>
+      </Separator>
+      <TextArea layoutX="29.0" layoutY="305.0" prefHeight="268.0" prefWidth="197.0" promptText="         ORDONANACE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </TextArea>
+      <TextArea layoutX="236.0" layoutY="305.0" prefHeight="268.0" prefWidth="206.0" promptText="   PARCOURS DE SOINS">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </TextArea>
+      <ComboBox layoutX="477.0" layoutY="89.0" prefHeight="25.0" prefWidth="108.0" promptText="Patient" />
+      <ImageView fitHeight="39.0" fitWidth="41.0" layoutX="41.0" layoutY="11.0" onMouseClicked="#retour" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagese/retourr.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,62 @@
+package controller;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+
+public class AccueilController implements Initializable {
+	
+
+    @FXML
+    private TextField txt_search;
+
+    @FXML
+    private Button search;
+
+    @FXML
+    private TableView<?> table_rdv;
+
+    @FXML
+    private TableColumn<?, ?> cln_id;
+
+    @FXML
+    private TableColumn<?, ?> cln_nom;
+
+    @FXML
+    private TableColumn<?, ?> cln_prenom;
+
+    @FXML
+    private TableColumn<?, ?> cln_tel;
+
+    @FXML
+    private TableColumn<?, ?> cln_date;
+
+    @FXML
+    private TableColumn<?, ?> cln_heure;
+
+    @FXML
+    void finish(MouseEvent event) {
+
+    }
+
+    @FXML
+    void search(MouseEvent event) {
+
+    }
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+}

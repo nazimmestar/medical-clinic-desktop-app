@@ -1,0 +1,95 @@
+package controller;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
+
+import java.io.FileInputStream;
+
+public class SignUpController implements Initializable {
+	
+	Connection cnx;
+    public PreparedStatement st;
+    public ResultSet result ;
+    
+    private FileInputStream fs;
+	
+	 @FXML
+	    private TextField txt_user;
+
+	    @FXML
+	    private TextField txt_mail;
+
+	    @FXML
+	    private TextField txt_pass;
+	    
+	    @FXML
+	    private Label lab_url;
+
+	    @FXML
+	    void add(MouseEvent event) {
+	    	
+	    	String user =txt_user.getText();
+	    	String mail =txt_mail.getText();
+	    	String pass =txt_pass.getText();
+	    	
+	    	File image =new File(lab_url.getText());
+	    	
+	    	String sql="insert into admin(userName,email,password,image) values(?,?,?,?)";
+	    	if(!user.equals("")&&!mail.equals("")&&!pass.equals("")) {
+	    		try {
+					st=cnx.prepareStatement(sql);
+					st.setString(1, user);
+					st.setString(2, mail);
+					st.setString(3, pass);
+					fs =new FileInputStream(image);
+					st.setBinaryStream(8, fs, image.length());
+					st.execute();
+					Alert alert = new Alert(AlertType.CONFIRMATION,"vous etes inscrit avec succès!",javafx.scene.control.ButtonType.OK);
+				    alert.showAndWait();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	    	}
+
+	    }
+
+	    @FXML
+	    void import_image(MouseEvent event) {
+	    	
+	    	FileChooser fc = new FileChooser();
+	    	fc.getExtensionFilters().add(new ExtensionFilter("Image Files","*.png","*.jpg"));
+
+	    }
+
+	
+	
+
+	
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

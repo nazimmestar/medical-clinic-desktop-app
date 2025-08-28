@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="859.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PrescreptionController">
+   <children>
+      <TextField fx:id="txt_nom" layoutX="40.0" layoutY="127.0" prefHeight="25.0" prefWidth="117.0" promptText="Nom" />
+      <TextField fx:id="txt_prenom" layoutX="173.0" layoutY="127.0" prefHeight="25.0" prefWidth="117.0" promptText="Prenom" />
+      <TextField fx:id="txt_age" layoutX="312.0" layoutY="127.0" prefHeight="25.0" prefWidth="63.0" promptText="Age" />
+      <TextArea fx:id="txt_ord" layoutX="37.0" layoutY="201.0" prefHeight="311.0" prefWidth="348.0" promptText="                       ORDONANACE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </TextArea>
+      <Pane layoutX="30.0" layoutY="24.0" prefHeight="44.0" prefWidth="619.0" style="-fx-background-color: #00005C;" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="8.0">
+         <children>
+            <Label layoutX="333.0" layoutY="3.0" text="Préscription" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TextField fx:id="txt_prix" layoutX="529.0" layoutY="559.0" prefHeight="25.0" prefWidth="124.0" promptText="Prix" />
+      <Label layoutX="467.0" layoutY="556.0" text="Tarif :" textAlignment="CENTER" AnchorPane.leftAnchor="467.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Separator layoutX="398.0" layoutY="193.0" orientation="VERTICAL" prefHeight="163.0" prefWidth="7.0" />
+      <Separator layoutX="425.0" layoutY="550.0" orientation="VERTICAL" prefHeight="52.0" prefWidth="7.0" />
+      <DatePicker fx:id="txt_date" layoutX="682.0" layoutY="127.0" prefHeight="25.0" prefWidth="135.0" promptText="Date" />
+      <TextArea fx:id="txt_ps" layoutX="431.0" layoutY="201.0" prefHeight="311.0" prefWidth="380.0" promptText="                       PARCOURS DE SOIN">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </TextArea>
+      <Button layoutX="686.0" layoutY="555.0" mnemonicParsing="false" onMouseClicked="#prix" prefHeight="30.0" prefWidth="97.0" style="-fx-background-color: #702886;" styleClass="buttons" text="       BON">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button layoutX="32.0" layoutY="555.0" mnemonicParsing="false" onMouseClicked="#imprimmer_ord" prefHeight="30.0" prefWidth="171.0" style="-fx-background-color: #702886;" styleClass="pink-btn" text="       Imprimmer Ord">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="45.0" layoutY="558.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagese/print.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="698.0" layoutY="558.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagese/print.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="624.0" layoutY="563.0" opacity="0.77" text="DA">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button layoutX="232.0" layoutY="555.0" mnemonicParsing="false" onMouseClicked="#imprimmer_pds" prefHeight="30.0" prefWidth="171.0" style="-fx-background-color: #702886;" styleClass="pink-btn" text="       Imprimmer PDS">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="245.0" layoutY="558.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagese/print.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

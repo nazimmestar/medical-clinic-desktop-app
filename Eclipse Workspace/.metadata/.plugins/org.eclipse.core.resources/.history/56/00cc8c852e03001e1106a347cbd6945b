@@ -1,0 +1,23 @@
+package models;
+
+import java.sql.Date;
+
+public class Medicament {
+	int id ;
+	String denom;
+	String groupe;
+	String comp;
+	String dose;
+	
+	public Medicament() {
+		super();
+	}
+    public Medicament(int id , String denom , String groupe,String comp,String dose ) {
+    	
+    	this.id=id;
+    	this. denom= denom;
+    	this.groupe=groupe;
+    	this.comp=comp;
+    	this.dose=dose;
+    	
+}}

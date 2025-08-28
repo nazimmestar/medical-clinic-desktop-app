@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="423.0" prefWidth="659.0" styleClass="backgrnd" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="20.0" layoutY="14.0" prefHeight="44.0" prefWidth="619.0" style="-fx-background-color: #0A4D68;">
+         <children>
+            <Label layoutX="235.0" layoutY="5.0" text="Fiche Patients" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <JFXTextField layoutX="177.0" layoutY="122.0" prefHeight="25.0" prefWidth="276.0" promptText="Nom" />
+      <JFXTextField layoutX="177.0" layoutY="160.0" prefHeight="25.0" prefWidth="276.0" promptText="Prénom" />
+      <JFXTextField layoutX="177.0" layoutY="233.0" prefHeight="25.0" prefWidth="276.0" promptText="Adresse" />
+      <JFXTextField layoutX="177.0" layoutY="270.0" prefHeight="25.0" prefWidth="276.0" promptText="Adresse" text="Numero Tél" />
+      <JFXTextField layoutX="177.0" layoutY="197.0" prefHeight="25.0" prefWidth="276.0" promptText="Adresse" text="Date de naissance" />
+      <JFXTextField layoutX="177.0" layoutY="84.0" prefHeight="25.0" prefWidth="276.0" promptText="Adresse" text="ID" />
+      <JFXTextArea layoutX="177.0" layoutY="307.0" prefHeight="65.0" prefWidth="276.0" promptText="les maladies qu'il a" />
+      <Label layoutX="60.0" layoutY="88.0" text="ID" textFill="#002668">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="60.0" layoutY="125.0" text="Nom" textFill="#002668">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="60.0" layoutY="163.0" text="Prénom" textFill="#002668">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="60.0" layoutY="201.0" text="Date N" textFill="#002668">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="60.0" layoutY="236.0" text="Adr" textFill="#002668">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="60.0" layoutY="273.0" text="Num" textFill="#002668">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="60.0" layoutY="330.0" text="À propos" textFill="#002668">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="539.0" layoutY="189.0" prefHeight="25.0" prefWidth="75.0" styleClass="green-btn" text="Ajouter" />
+      <JFXButton layoutX="539.0" layoutY="251.0" styleClass="pink-btn" text="Suprimmer" />
+      <MaterialDesignIconView glyphName="CHEVRON_DOUBLE_RIGHT" layoutX="494.0" layoutY="398.0" size="20" />
+      <MaterialDesignIconView glyphName="CHEVRON_DOUBLE_LEFT" layoutX="116.0" layoutY="398.0" size="20" />
+      <ImageView fitHeight="87.0" fitWidth="94.0" layoutX="530.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

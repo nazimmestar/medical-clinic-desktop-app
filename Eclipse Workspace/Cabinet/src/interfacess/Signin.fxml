@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="VBox" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="282.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SigninController">
+   <children>
+      <Label text="Se connecter" textFill="#9a0e0e">
+         <VBox.margin>
+            <Insets bottom="20.0" left="20.0" top="90.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_user" promptText="Nom de l'utilisateur">
+         <VBox.margin>
+            <Insets left="20.0" right="20.0" />
+         </VBox.margin>
+      </TextField>
+      <PasswordField fx:id="txt_pass" promptText="Mot de passe">
+         <VBox.margin>
+            <Insets left="20.0" right="20.0" top="20.0" />
+         </VBox.margin>
+      </PasswordField>
+      <HBox prefHeight="21.0" prefWidth="282.0">
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+         <children>
+            <Button fx:id="btn_reset" mnemonicParsing="false" onAction="#SendEmail" prefHeight="26.0" prefWidth="249.0" styleClass="pink-btn" text="Mot de passe oublié">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btn_connecter" mnemonicParsing="false" onAction="#openHome" prefHeight="25.0" prefWidth="217.0" styleClass="green-btn" text="Se connecter">
+               <HBox.margin>
+                  <Insets bottom="70.0" left="20.0" right="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>

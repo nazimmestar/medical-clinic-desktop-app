@@ -1,0 +1,231 @@
+package controller;
+
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.text.*;
+import java.time.LocalDate;
+
+
+
+
+public class PrescreptionController implements Initializable {
+	
+	@FXML
+    private TextField txt_nom;
+
+    @FXML
+    private TextField txt_prenom;
+
+    @FXML
+    private TextField txt_age;
+    
+    @FXML
+    private DatePicker txt_date;
+
+    @FXML
+    private TextArea txt_ord;
+
+    @FXML
+    private TextField txt_prix;
+
+    @FXML
+    private TextArea txt_ps;
+
+    @FXML
+    void imprimmer_ord(MouseEvent event) {
+    	
+    	LocalDate Date = txt_date.getValue();
+    	Document doc = new Document();
+    	Document doc1 = new Document();
+    	
+    	try {
+			PdfWriter.getInstance(doc, new FileOutputStream("ordonance.pdf"));
+			doc.open();
+			String format ="dd/mm/yy hh:mm";
+			
+			
+			SimpleDateFormat formater= new SimpleDateFormat(format);
+			java.util.Date date = new java.util.Date();
+			com.itextpdf.text.Image img = com.itextpdf.text.Image.getInstance("B:\\Eclipse Workspace\\Cabinet\\src\\imagese\\cabinet.png");
+			img.setAlignment(com.itextpdf.text.Image.ALIGN_CENTER);
+			doc.add(img);
+			
+			Font boldFont = FontFactory.getFont(FontFactory.TIMES_ROMAN, 20, Font.BOLD, BaseColor.BLACK);
+			Font txt = FontFactory.getFont(FontFactory.TIMES_ROMAN, 14, Font.NORMAL, BaseColor.BLACK);
+			
+			Paragraph nomp = new Paragraph();
+			nomp.setAlignment(Element.ALIGN_CENTER);
+			nomp.setFont(txt);
+			nomp.add("\n     "+txt_nom.getText().toUpperCase()+"                "+txt_prenom.getText().toUpperCase()+"                "+txt_age.getText()+"ans"+"                Le :  "+Date);
+			
+			Paragraph paragraph = new Paragraph();
+			paragraph.setAlignment(Element.ALIGN_CENTER);
+			paragraph.setFont(boldFont);
+			paragraph.add("\n \n ORDONANCE");
+			
+			Paragraph medic = new Paragraph();
+			medic.setAlignment(Element.ALIGN_LEFT);
+			medic.setFont(txt);
+			medic.add("\n"+txt_ord.getText());
+			
+			doc.add(nomp);
+			doc.add(paragraph);
+			doc.add(medic);
+			
+
+			doc.close();
+			Desktop.getDesktop().open(new File("ordonance.pdf"));
+			
+			
+		} catch (FileNotFoundException | DocumentException e) {
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+
+    }
+
+
+    @FXML
+    void imprimmer_pds(MouseEvent event) {
+    	
+    	LocalDate Date = txt_date.getValue();
+    	Document doc1 = new Document();
+    	
+    	try {
+			PdfWriter.getInstance(doc1, new FileOutputStream("Parcour.pdf"));
+			doc1.open();
+			String format ="dd/mm/yy hh:mm";
+			
+			
+			SimpleDateFormat formater= new SimpleDateFormat(format);
+			java.util.Date date = new java.util.Date();
+			com.itextpdf.text.Image img = com.itextpdf.text.Image.getInstance("B:\\Eclipse Workspace\\Cabinet\\src\\imagese\\cabinet.png");
+			img.setAlignment(com.itextpdf.text.Image.ALIGN_CENTER);
+			doc1.add(img);
+			Font boldFont = FontFactory.getFont(FontFactory.TIMES_ROMAN, 20, Font.BOLD, BaseColor.BLACK);
+			Font txt = FontFactory.getFont(FontFactory.TIMES_ROMAN, 14, Font.NORMAL, BaseColor.BLACK);
+			
+			Paragraph nomp = new Paragraph();
+			nomp.setAlignment(Element.ALIGN_CENTER);
+			nomp.setFont(txt);
+			nomp.add("\n     "+txt_nom.getText().toUpperCase()+"                "+txt_prenom.getText().toUpperCase()+"                "+txt_age.getText()+"ans"+"                Le :  "+Date);
+			
+			Paragraph paragraph = new Paragraph();
+			paragraph.setAlignment(Element.ALIGN_CENTER);
+			paragraph.setFont(boldFont);
+			paragraph.add("\n \n PARCOURS DE SOINS");
+			
+			Paragraph pds = new Paragraph();
+			pds.setAlignment(Element.ALIGN_LEFT);
+			pds.setFont(txt);
+			pds.add("\n"+txt_ps.getText());
+			
+			doc1.add(nomp);
+			doc1.add(paragraph);
+			doc1.add(pds);
+			
+
+			doc1.close();
+			Desktop.getDesktop().open(new File("Parcour.pdf"));
+			
+			
+		} catch (FileNotFoundException | DocumentException e) {
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+    }
+    
+    @FXML
+    void prix(MouseEvent event) {
+    	
+    	LocalDate Date = txt_date.getValue();
+    	Document doc1 = new Document();
+    	
+    	try {
+			PdfWriter.getInstance(doc1, new FileOutputStream("prix.pdf"));
+			doc1.open();
+			String format ="dd/mm/yy hh:mm";
+			
+			
+			SimpleDateFormat formater= new SimpleDateFormat(format);
+			java.util.Date date = new java.util.Date();
+			com.itextpdf.text.Image img = com.itextpdf.text.Image.getInstance("B:\\Eclipse Workspace\\Cabinet\\src\\imagese\\cabinet.png");
+			img.setAlignment(com.itextpdf.text.Image.ALIGN_CENTER);
+			doc1.add(img);
+			Font boldFont = FontFactory.getFont(FontFactory.TIMES_ROMAN, 20, Font.BOLD, BaseColor.BLACK);
+			Font txt = FontFactory.getFont(FontFactory.TIMES_ROMAN, 17, Font.NORMAL, BaseColor.BLACK);
+			
+			Paragraph nomp = new Paragraph();
+			nomp.setAlignment(Element.ALIGN_CENTER);
+			nomp.setFont(txt);
+			nomp.add("\n     "+txt_nom.getText().toUpperCase()+"                "+txt_prenom.getText().toUpperCase()+"                "+txt_age.getText()+"ans"+"                Le :  "+Date);
+			
+			Paragraph paragraph = new Paragraph();
+			paragraph.setAlignment(Element.ALIGN_CENTER);
+			paragraph.setFont(boldFont);
+			paragraph.add("\n \n FACTURE");
+			
+			Paragraph pds = new Paragraph();
+			pds.setAlignment(Element.ALIGN_LEFT);
+			pds.setFont(txt);
+			pds.add("\n \n \n le tarif est :  "+txt_prix.getText()+"       DA");
+			
+			doc1.add(nomp);
+			doc1.add(paragraph);
+			doc1.add(pds);
+			
+
+			doc1.close();
+			Desktop.getDesktop().open(new File("prix.pdf"));
+			
+			
+		} catch (FileNotFoundException | DocumentException e) {
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+    }
+
+	
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+	}
+
+}
